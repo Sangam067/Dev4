@@ -1,0 +1,6 @@
+2026-10-31 03:33:01 [CRIT] kernel: page_fault in non-paged pool at 0xDEADBEEF0012
+2026-10-31 03:33:04 [WARN] systemd[1]: necro-service.service: Watchdog ping failed (heartbeat flatlined)
+2026-10-31 03:33:09 [INFO] dockerd[4092]: Container a4f8b91c terminated with exit code 137 (OOM Killer)
+2026-10-31 03:33:14 [ALERT] audit: user 'nobody' spawned bash process PID 1337 with euid=0
+2026-10-31 03:33:19 [CRIT] thermal_zone0: temperature 98.7C exceeds silicon threshold
+2026-10-31 03:33:25 [EMERG] memory: zero-byte allocation requested from void address 0x00000000

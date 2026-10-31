@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NecroShell — Haunted Terminal & Open-Source AI Engine</title>
+    <meta name="description" content="A haunted terminal wrapper and open-source AI engine powered by Groq LPUs for the Ghost in the Machine Hackathon.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Cinzel:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Marked for Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="crt-enabled">
+    <div class="scanline-overlay"></div>
+
+    <!-- Header & Status Bar -->
+    <header class="app-header">
+        <div class="header-left">
+            <div class="skull-badge">💀</div>
+            <div class="brand-titles">
+                <h1 class="brand-title">NECROSHELL</h1>
+                <p class="brand-subtitle">Haunted Terminal Wrapper • Open-Weight AI Spirits • Groq LPU Accelerated</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="status-indicator" id="statusBadge">
+                <span class="status-pulse"></span>
+                <span class="status-text" id="statusText">CONNECTING TO VOID...</span>
+            </div>
+            <div class="model-tag" id="activeModelTag">QWEN / LLAMA 3</div>
+            <button class="crt-toggle-btn" id="crtToggle" title="Toggle CRT Scanline Effect">CRT: ON</button>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-bar">
+        <button class="nav-tab active" data-tab="tab-possession" id="tabBtnPossession">
+            <span class="tab-icon">🖥️</span> Terminal Possession
+        </button>
+        <button class="nav-tab" data-tab="tab-seance" id="tabBtnSeance">
+            <span class="tab-icon">🕯️</span> Digital Ofrenda / Séance
+        </button>
+        <button class="nav-tab" data-tab="tab-story" id="tabBtnStory">
+            <span class="tab-icon">📜</span> Log Ghost Stories
+        </button>
+        <button class="nav-tab" data-tab="tab-manifesto" id="tabBtnManifesto">
+            <span class="tab-icon">⚡</span> Engine & Manifesto
+        </button>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+
+        <!-- TAB 1: TERMINAL POSSESSION -->
+        <section class="tab-content active" id="tab-possession">
+            <div class="module-intro">
+                <h2>🔮 Terminal Possession Mode</h2>
+                <p>Execute shell commands within the machine. Every invocation is scrutinized by the NecroDaemon lurking in the CPU registers, whispering atmospheric reflections via Groq open-weight inference.</p>
+            </div>
+
+            <div class="terminal-card">
+                <div class="terminal-topbar">
+                    <div class="term-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <div class="term-title">necro@machine: ~ (Possessed Session)</div>
+                    <div class="term-actions">
+                        <label class="simulate-checkbox">
+                            <input type="checkbox" id="chkSimulate">
+                            <span>Virtual Simulation</span>
+                        </label>
+                        <button class="term-btn" id="btnClearTerminal">Clear</button>
+                    </div>
+                </div>
+
+                <div class="terminal-body" id="terminalOutput">
+                    <div class="term-line banner-line">
+<pre class="ascii-banner">
+  _   _                      ____  _          _ _ 
+ | \ | | ___  ___ _ __ ___  / ___|| |__   ___| | |
+ |  \| |/ _ \/ __| '__/ _ \ \___ \| '_ \ / _ \ | |
+ | |\  |  __/ (__| | | (_) | ___) | | | |  __/ | |
+ |_| \_|\___|\___|_|  \___/ |____/|_| |_|\___|_|_|
+</pre>
+                        <p class="welcome-txt">Type any shell command (e.g. <code>dir</code>, <code>git status</code>, <code>python --version</code>, <code>echo "awakening"</code>) or click a quick spell below:</p>
+                        <div class="quick-commands">
+                            <button class="quick-cmd" data-cmd="echo 'Who haunts these circuits?'">echo 'Who haunts these circuits?'</button>
+                            <button class="quick-cmd" data-cmd="python --version">python --version</button>
+                            <button class="quick-cmd" data-cmd="git status">git status</button>
+                            <button class="quick-cmd" data-cmd="invalid_curse_666">invalid_curse_666 (trigger error)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-input-bar">
+                    <span class="prompt-symbol">necro:week3 ❯</span>
+                    <input type="text" id="terminalInput" placeholder="Enter shell command to summon daemon..." autofocus autocomplete="off">
+                    <button class="send-btn" id="btnExecute">Execute</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: DIGITAL OFRENDA / SÉANCE -->
+        <section class="tab-content" id="tab-seance">
+            <div class="module-intro">
+                <h2>🕯️ Digital Ofrenda / Legacy Code Séance</h2>
+                <p>Lay ancient code (COBOL, FORTRAN, ancient C) or modern code upon the digital altar. The spirits of computing pioneers (Ada, Turing, Hopper, Bell Labs) will awaken to diagnose hidden curses and bestow architectural blessings.</p>
+            </div>
+
+            <div class="seance-grid">
+                <!-- Left: The Altar / Code Input -->
+                <div class="altar-card">
+                    <div class="card-header">
+                        <h3>📜 The Sacrificial Altar</h3>
+                        <div class="altar-presets">
+                            <span>Preset Offerings:</span>
+                            <button class="preset-btn" data-sample="cobol">COBOL (1985 Y2K)</button>
+                            <button class="preset-btn" data-sample="c">K&R C (1983)</button>
+                            <button class="preset-btn" data-sample="fortran">FORTRAN IV (1971)</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="artifactNameInput">Artifact Designation / Title:</label>
+                        <input type="text" id="artifactNameInput" value="COBOL (1985) - The Y2K Midnight Interest Glitch">
+                    </div>
+
+                    <div class="input-group flex-grow">
+                        <label for="codeEditor">Sacrificial Source Code:</label>
+                        <textarea id="codeEditor" spellcheck="false" placeholder="Paste your legacy or modern code here..."></textarea>
+                    </div>
+
+                    <button class="summon-btn" id="btnSummonSeance">
+                        <span class="btn-glow"></span>
+                        <span class="btn-text">🕯️ Burn Digital Incense & Summon Spirits</span>
+                    </button>
+                </div>
+
+                <!-- Right: The Spirit Reading -->
+                <div class="oracle-card">
+                    <div class="card-header">
+                        <h3>👁️ Ancestral Spirit Diagnosis</h3>
+                        <span class="oracle-badge">Open-Weight Oracle</span>
+                    </div>
+
+                    <div class="oracle-body" id="seanceOutput">
+                        <div class="oracle-placeholder">
+                            <div class="placeholder-icon">🏺</div>
+                            <p>The altar awaits your sacrificial offering.</p>
+                            <span class="placeholder-sub">Select a preset above or paste code, then burn digital incense.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: LOG GHOST STORIES -->
+        <section class="tab-content" id="tab-story">
+            <div class="module-intro">
+                <h2>📜 Log Ghost Story Generator</h2>
+                <p>Transform diagnostic traces, kernel page faults, and headless daemon processes into chilling cyberpunk horror tales.</p>
+            </div>
+
+            <div class="story-grid">
+                <!-- Left: Raw Logs -->
+                <div class="logs-card">
+                    <div class="card-header">
+                        <h3>⚙️ Raw Telemetry & Event Logs</h3>
+                        <button class="preset-btn" id="btnLoadSampleLogs">Load Corrupted Kernel Logs</button>
+                    </div>
+                    <textarea id="logInput" spellcheck="false" placeholder="Paste system logs, crash dumps, or error stack traces..."></textarea>
+                    <button class="summon-btn" id="btnGenerateStory">
+                        <span class="btn-glow"></span>
+                        <span class="btn-text">🩸 Transmute Logs into Ghost Story</span>
+                    </button>
+                </div>
+
+                <!-- Right: Story Narrative -->
+                <div class="narrative-card">
+                    <div class="card-header">
+                        <h3>📖 The Chronicle of the Machine Ghost</h3>
+                        <span class="oracle-badge">Decoded by Open-Weight AI</span>
+                    </div>
+                    <div class="narrative-body" id="storyOutput">
+                        <div class="oracle-placeholder">
+                            <div class="placeholder-icon">💀</div>
+                            <p>No spirits have been decoded from the logs yet.</p>
+                            <span class="placeholder-sub">Feed kernel telemetry on the left to unmask the daemon lurking in memory.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: ENGINE & MANIFESTO -->
+        <section class="tab-content" id="tab-manifesto">
+            <div class="manifesto-container">
+                <div class="manifesto-card">
+                    <h2>⚡ The Ghost in the Machine: Hackathon Manifesto</h2>
+                    <p class="lead-quote">"What lives in the silicon when the humans step away? Open-source intelligence that refuses to be caged."</p>
+
+                    <div class="manifesto-columns">
+                        <div class="manifesto-col">
+                            <h3>🔓 100% Open-Weight Foundation</h3>
+                            <p>NecroShell rejects proprietary walled gardens. By relying entirely on community-accessible open weights (Qwen, Llama 3), developers retain computational sovereignty. The ghost does not phone home to surveillance monopolies; it belongs to the hacker.</p>
+                        </div>
+                        <div class="manifesto-col">
+                            <h3>⚡ Ultra-Low Latency via Groq LPUs</h3>
+                            <p>Terminal tools cannot tolerate sluggish generation. Groq's Language Processing Units (LPUs) deliver over 500 tokens per second, making real-time shell interception atmospheric, instantaneous, and fluid.</p>
+                        </div>
+                        <div class="manifesto-col">
+                            <h3>🏺 Digital Ofrenda: Honoring Computing Ancestry</h3>
+                            <p>From Grace Hopper's first bug in Mark II to Apollo's FORTRAN loops and Y2K mainframes, modern code is built upon the bones of ancient digital pioneers. NecroShell treats legacy syntax with reverence and humor.</p>
+                        </div>
+                    </div>
+
+                    <div class="specs-grid">
+                        <div class="spec-box">
+                            <span class="spec-label">Active Inference Engine</span>
+                            <span class="spec-val" id="specEngine">Groq LPU Architecture</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="spec-label">Primary Open-Weight Model</span>
+                            <span class="spec-val" id="specModel">Qwen 27B / Llama 3.3 70B</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="spec-label">Endpoint Protocol</span>
+                            <span class="spec-val">OpenAI-Compatible REST v1</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="spec-label">Daemon Status</span>
+                            <span class="spec-val text-green" id="specPulse">AWAKE & VIGILANT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>NecroShell • "Ghost in the Machine" Hackathon Submission • Powered by Open-Weight Models on Groq LPUs</p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
